@@ -1,8 +1,12 @@
 const theme = {
   colors: {
-    background: '#121214',
-    text: '#e1e1e6',
+    background: '#fff',
+    text: '#333',
     primary: '#8257e6'
+  },
+  types: {
+    primary: 'Helvetica, Arial, sans-serif',
+    secondary: 'Spectral, Georgia'
   }
 }
 

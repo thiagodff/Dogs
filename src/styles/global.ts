@@ -10,20 +10,34 @@ export default createGlobalStyle`
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
+    font-family: ${props => props.theme.types.primary};
     -webkit-font-smoothing: antialiased !important;
   }
 
-  body, input, button {
-    font-family: sans-serif;
-    font-size: 16px;
-    font-weight: normal;
+  h1, h2, h3, h4, p {
+    margin: 0px;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
+  ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  button {
-    cursor: pointer;
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.colors.text};
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button, input {
+    display: block;
+    font-size: 1rem; // 1rem == 16px
+    font-family: ${props => props.theme.types.primary};
+    color: ${props => props.theme.colors.text};
   }
 `
