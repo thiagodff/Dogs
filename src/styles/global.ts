@@ -8,6 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
+    padding-top: 4rem;
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
     font-family: ${props => props.theme.types.primary};
@@ -39,5 +40,11 @@ export default createGlobalStyle`
     font-size: 1rem; // 1rem == 16px
     font-family: ${props => props.theme.types.primary};
     color: ${props => props.theme.colors.text};
+  }
+
+  .container {
+    max-width: 50rem;
+    padding: 0 1rem;
+    margin: 0 auto;
   }
 `
