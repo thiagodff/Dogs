@@ -7,7 +7,7 @@ import { ReactComponent as Dogs } from '../../assets/dogs.svg'
 import { Container, Nav } from './styles'
 
 const Header: React.FC = () => {
-  const { user } = useAuth()
+  const { user, signOut } = useAuth()
 
   return (
     <Container>
@@ -19,6 +19,7 @@ const Header: React.FC = () => {
         {user.nome ? (
           <Link className="login" to="/conta">
             {user.nome}
+            <button onClick={signOut}>Sair</button>
           </Link>
         ) : (
           <Link className="login" to="/login">

@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
   const username = useForm()
   const password = useForm()
 
-  const { signIn } = useAuth()
+  const { signIn, error, loading } = useAuth()
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -34,7 +34,14 @@ const SignIn: React.FC = () => {
 
         <Input label="Senha" name="password" type="password" {...password} />
 
-        <Button type="submit">Entrar</Button>
+        {loading ? (
+          <Button disabled type="submit">
+            Carregando...
+          </Button>
+        ) : (
+          <Button type="submit">Entrar</Button>
+        )}
+        {error && <p>{error}</p>}
       </form>
       <Link to="/login/cadastrar">Cadastro</Link>
     </Container>
