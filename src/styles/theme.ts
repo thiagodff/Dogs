@@ -6,7 +6,7 @@ const theme = {
   },
   types: {
     primary: 'Helvetica, Arial, sans-serif',
-    secondary: 'Spectral, Georgia'
+    secondary: 'Spectral, georgia'
   }
 }
 

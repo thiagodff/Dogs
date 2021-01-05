@@ -6,8 +6,9 @@ import { useAuth } from '../../../../hooks/context/auth'
 
 import Button from '../../../../components/Button'
 import Input from '../../../../components/Input'
+import Error from '../../../../components/Error'
 
-import { Container } from './styles'
+import { Container, NewAccountLink } from './styles'
 
 const SignIn: React.FC = () => {
   const username = useForm()
@@ -27,8 +28,8 @@ const SignIn: React.FC = () => {
   }
 
   return (
-    <Container>
-      <h1>Login</h1>
+    <Container className="anime-left">
+      <h1 className="title">Login</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" name="username" type="text" {...username} />
 
@@ -41,9 +42,16 @@ const SignIn: React.FC = () => {
         ) : (
           <Button type="submit">Entrar</Button>
         )}
-        {error && <p>{error}</p>}
+        <Error error={error} />
       </form>
-      <Link to="/login/cadastrar">Cadastro</Link>
+
+      <Link to="/login/esqueci-minha-senha">Perdeu a Senha?</Link>
+
+      <NewAccountLink>
+        <h2>Cadastre-se</h2>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <Link to="/login/cadastrar">Cadastro</Link>
+      </NewAccountLink>
     </Container>
   )
 }
