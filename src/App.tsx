@@ -5,13 +5,18 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
 import theme from './styles/theme'
 
+import AppProvider from './hooks/context'
+
 import Routes from './routes'
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <AppProvider>
+          <Routes />
+        </AppProvider>
+
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>

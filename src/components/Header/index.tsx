@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/context/auth'
 
 import { ReactComponent as Dogs } from '../../assets/dogs.svg'
 
 import { Container, Nav } from './styles'
 
 const Header: React.FC = () => {
+  const { user } = useAuth()
+
   return (
     <Container>
       <Nav className="container">
@@ -13,9 +16,15 @@ const Header: React.FC = () => {
           <Dogs />
         </Link>
 
-        <Link className="login" to="/login">
-          Login / Criar
-        </Link>
+        {user.nome ? (
+          <Link className="login" to="/conta">
+            {user.nome}
+          </Link>
+        ) : (
+          <Link className="login" to="/login">
+            Login / Criar
+          </Link>
+        )}
       </Nav>
     </Container>
   )
