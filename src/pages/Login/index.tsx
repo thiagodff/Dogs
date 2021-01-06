@@ -15,12 +15,14 @@ const Login: React.FC = () => {
   if (isSigned) return <Navigate to="/conta" />
   return (
     <Container>
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route path="cadastrar" element={<SignUp />} />
-        <Route path="esqueci-minha-senha" element={<ForgotPassword />} />
-        <Route path="resetar-minha-senha" element={<ResetPassword />} />
-      </Routes>
+      <div className="content-wrapper">
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="cadastrar" element={<SignUp />} />
+          <Route path="esqueci-minha-senha" element={<ForgotPassword />} />
+          <Route path="resetar-minha-senha" element={<ResetPassword />} />
+        </Routes>
+      </div>
     </Container>
   )
 }
