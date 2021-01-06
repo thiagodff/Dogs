@@ -22,9 +22,9 @@ const types: ITypesValidate = {
     message: 'Preencha um email valido'
   },
   password: {
-    regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+    regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
     message:
-      'Senha necessita ter 1 carácter maiúsculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres'
+      'Senha precisa ter 1 carácter maiúsculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres'
   },
   number: {
     regex: /^\d+$/,

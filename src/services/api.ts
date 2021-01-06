@@ -5,11 +5,18 @@ interface IFetchData {
   options: RequestInit
 }
 
-interface IBody {
-  [key: string]: string
+interface IAuthenticateUser {
+  username: string
+  password: string
 }
 
-export function TOKEN_POST(body: IBody): IFetchData {
+interface ICreateUser {
+  username: string
+  email: string
+  password: string
+}
+
+export function TOKEN_POST(body: IAuthenticateUser): IFetchData {
   return {
     url: API_BASE_URL + '/jwt-auth/v1/token',
     options: {
@@ -43,6 +50,19 @@ export function USER_GET(token: string): IFetchData {
       headers: {
         Authorization: `Bearer ${token}`
       }
+    }
+  }
+}
+
+export function USER_POST(body: ICreateUser): IFetchData {
+  return {
+    url: API_BASE_URL + '/api/user',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
     }
   }
 }
