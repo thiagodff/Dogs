@@ -112,6 +112,8 @@ const AuthProvider: React.FC = ({ children }) => {
         } finally {
           setLoading(false)
         }
+      } else {
+        setIsSigned(false)
       }
     }
 
