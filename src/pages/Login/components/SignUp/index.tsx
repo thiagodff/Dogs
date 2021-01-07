@@ -1,13 +1,16 @@
 import React, { FormEvent } from 'react'
 
+import { useAuth } from '../../../../hooks/context/auth'
+import useFetch from '../../../../hooks/fetch'
+import useForm from '../../../../hooks/form'
+
 import { USER_POST } from '../../../../services/api'
 
 import Button from '../../../../components/Button'
 import Input from '../../../../components/Input'
-import useForm from '../../../../hooks/form'
+import Error from '../../../../components/Error'
 
 import { Container } from './styles'
-import { useAuth } from '../../../../hooks/context/auth'
 
 const SignUp: React.FC = () => {
   const username = useForm()
@@ -15,6 +18,7 @@ const SignUp: React.FC = () => {
   const password = useForm('password')
 
   const { signIn } = useAuth()
+  const { loading, error, request } = useFetch()
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -25,13 +29,15 @@ const SignUp: React.FC = () => {
       password: password.value
     })
 
-    const response = await fetch(url, options)
-    console.log(response)
-    if (response.ok) {
-      signIn({
-        username: username.value,
-        password: password.value
-      })
+    if (username.validate() && password.validate()) {
+      const { response } = await request({ url, options })
+
+      if (response.ok) {
+        signIn({
+          username: username.value,
+          password: password.value
+        })
+      }
     }
   }
 
@@ -44,7 +50,13 @@ const SignUp: React.FC = () => {
         <Input label="E-mail" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
 
-        <Button>Cadastrar</Button>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button>Cadastrar</Button>
+        )}
+
+        <Error error={error} />
       </form>
     </Container>
   )

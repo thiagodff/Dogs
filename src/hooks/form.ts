@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react'
 
-interface IFormData {
+interface IFormResponse {
   value: string
   setValue: React.Dispatch<React.SetStateAction<string>>
   onChange(event: ChangeEvent<HTMLInputElement>): void
@@ -32,7 +32,7 @@ const types: ITypesValidate = {
   }
 }
 
-const useForm = (type?: string | false): IFormData => {
+const useForm = (type?: string | false): IFormResponse => {
   const [value, setValue] = useState('')
   const [error, setError] = useState('')
 
