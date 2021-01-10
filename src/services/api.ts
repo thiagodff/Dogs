@@ -66,3 +66,16 @@ export function USER_POST(body: ICreateUser): IFetchData {
     }
   }
 }
+
+export function PHOTO_POST(formData: FormData, token: string): IFetchData {
+  return {
+    url: API_BASE_URL + '/api/photo',
+    options: {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData
+    }
+  }
+}

@@ -28,7 +28,7 @@ const types: ITypesValidate = {
   },
   number: {
     regex: /^\d+$/,
-    message: 'Utilize números apenas'
+    message: 'Utilize apenas números'
   }
 }
 
