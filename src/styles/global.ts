@@ -55,6 +55,10 @@ export default createGlobalStyle`
     margin: 0 auto;
   }
 
+  .main-container {
+    margin-top: 4rem;
+  }
+
   .title {
     font-family: ${props => props.theme.types.secondary};
     line-height: 1;

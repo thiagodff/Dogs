@@ -2,12 +2,12 @@ import React from 'react'
 
 import { Container } from './styles'
 
-const Posts: React.FC = () => {
+const Loading: React.FC = () => {
   return (
     <Container>
-      <h1>Posts</h1>
+      <h1>Loading</h1>
     </Container>
   )
 }
 
-export default Posts
+export default Loading

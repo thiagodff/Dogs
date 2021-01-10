@@ -6,7 +6,7 @@ interface IRequestData {
 }
 
 interface IFetchResponse {
-  data: IResponseApi
+  data: IResponseApi | IResponseApi[]
   error: string
   loading: boolean
   request(data: IRequestData): Promise<IResponseData>
@@ -22,7 +22,9 @@ interface IResponseApi {
 }
 
 const useFetch = (): IFetchResponse => {
-  const [data, setData] = useState<IResponseApi>({} as IResponseApi)
+  const [data, setData] = useState<IResponseApi | IResponseApi[]>(
+    {} as IResponseApi
+  )
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 

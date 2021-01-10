@@ -16,6 +16,12 @@ interface ICreateUser {
   password: string
 }
 
+interface IPhotosGet {
+  page: number
+  total: number
+  user: number
+}
+
 export function TOKEN_POST(body: IAuthenticateUser): IFetchData {
   return {
     url: API_BASE_URL + '/jwt-auth/v1/token',
@@ -76,6 +82,16 @@ export function PHOTO_POST(formData: FormData, token: string): IFetchData {
         Authorization: `Bearer ${token}`
       },
       body: formData
+    }
+  }
+}
+
+export function PHOTOS_GET({ page, total, user }: IPhotosGet): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store'
     }
   }
 }

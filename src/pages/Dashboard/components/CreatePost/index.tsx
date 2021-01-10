@@ -59,7 +59,7 @@ const CreatePost: React.FC = () => {
   }
 
   return (
-    <Container className="animeLeft">
+    <Container className="anime-left">
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="name" {...name} />
         <Input label="Peso" type="number" name="weight" {...weight} />
