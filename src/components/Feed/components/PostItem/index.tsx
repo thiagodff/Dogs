@@ -8,11 +8,12 @@ interface PostProps {
 
 interface PostItemProps {
   post: PostProps
+  setModalPost(post: PostProps): void
 }
 
-const PostItem: React.FC<PostItemProps> = ({ post }) => {
+const PostItem: React.FC<PostItemProps> = ({ post, setModalPost }) => {
   return (
-    <Container>
+    <Container onClick={() => setModalPost(post)}>
       <img src={post.src} alt={post.title} />
       <span className="visualizations">{post.acessos}</span>
     </Container>

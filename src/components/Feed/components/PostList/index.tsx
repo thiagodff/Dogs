@@ -10,7 +10,15 @@ import Loading from '../../../Loading'
 
 import { Container } from './styles'
 
-const Posts: React.FC = () => {
+interface PostProps {
+  [key: string]: string
+}
+
+interface PostListProps {
+  setModalPost(post: PostProps): void
+}
+
+const Posts: React.FC<PostListProps> = ({ setModalPost }) => {
   const { data, loading, error, request } = useFetch()
 
   useEffect(() => {
@@ -31,14 +39,14 @@ const Posts: React.FC = () => {
     return (
       <Container className="anime-left">
         {data.map(post => (
-          <PostItem key={post.id} post={post} />
+          <PostItem key={post.id} post={post} setModalPost={setModalPost} />
         ))}
       </Container>
     )
   }
   return (
     <Container>
-      <h1>Nenhum post encontrado, volta mais tarde</h1>
+      <h1>Nenhum post encontrado, volte mais tarde</h1>
     </Container>
   )
 }

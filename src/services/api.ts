@@ -95,3 +95,13 @@ export function PHOTOS_GET({ page, total, user }: IPhotosGet): IFetchData {
     }
   }
 }
+
+export function PHOTO_GET(id: string): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/photo/${id}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store'
+    }
+  }
+}
