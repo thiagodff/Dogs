@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Container } from './styles'
+import { useAuth } from '../../../../hooks/context/auth'
+
+import PostCreateComment from '../PostCreateComment'
+
+import { CommentList } from './styles'
 
 interface CommentsProps {
   comment_ID: string
@@ -25,11 +29,24 @@ interface PostCommentsProps {
   comments: CommentsProps[]
 }
 
-const PostComments: React.FC<PostCommentsProps> = ({ id, comments }) => {
+const PostComments: React.FC<PostCommentsProps> = props => {
+  const [comments, setComments] = useState(() => props.comments)
+  const { isSigned } = useAuth()
+
   return (
-    <Container>
-      <h1>PostComments</h1>
-    </Container>
+    <>
+      <CommentList>
+        {comments.map(comment => (
+          <li key={comment.comment_ID}>
+            <b>{comment.comment_author}: </b>
+            <span>{comment.comment_content}</span>
+          </li>
+        ))}
+      </CommentList>
+      {isSigned && (
+        <PostCreateComment id={props.id} updateComments={setComments} />
+      )}
+    </>
   )
 }
 

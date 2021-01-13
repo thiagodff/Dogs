@@ -22,6 +22,10 @@ interface IPhotosGet {
   user: number
 }
 
+interface IDatComment {
+  comment: string
+}
+
 export function TOKEN_POST(body: IAuthenticateUser): IFetchData {
   return {
     url: API_BASE_URL + '/jwt-auth/v1/token',
@@ -102,6 +106,24 @@ export function PHOTO_GET(id: string): IFetchData {
     options: {
       method: 'GET',
       cache: 'no-store'
+    }
+  }
+}
+
+export function COMMENT_POST(
+  id: number,
+  token: string,
+  body: IDatComment
+): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/comment/${id}`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(body)
     }
   }
 }

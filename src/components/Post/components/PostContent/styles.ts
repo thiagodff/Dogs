@@ -22,20 +22,24 @@ export const Container = styled.div`
   transform: scale(0.8);
   animation: ${scaleUp} 0.3s forwards;
 
+  .img {
+    grid-row: 1 / 4;
+  }
+
   @media (max-width: 64rem) {
     height: auto;
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
+
+    .img {
+      grid-row: 1;
+    }
   }
 `
 
 export const PostDetails = styled.div`
   padding: 2rem 2rem 0 2rem;
-
-  .img {
-    grid-row: 1 / 4;
-  }
 
   .author {
     opacity: 0.5;
@@ -79,12 +83,6 @@ export const PostDetails = styled.div`
       width: 2px;
       background: #333;
       margin-top: 5px;
-    }
-  }
-
-  @media (max-width: 64rem) {
-    .img {
-      grid-row: 1;
     }
   }
 `
