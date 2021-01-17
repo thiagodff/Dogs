@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from '../../../Image'
 
 import { Container } from './styles'
 
@@ -14,7 +15,7 @@ interface PostItemProps {
 const PostItem: React.FC<PostItemProps> = ({ post, setModalPost }) => {
   return (
     <Container onClick={() => setModalPost(post)}>
-      <img src={post.src} alt={post.title} />
+      <Image src={post.src} alt={post.title} />
       <span className="visualizations">{post.acessos}</span>
     </Container>
   )
