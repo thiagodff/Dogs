@@ -127,3 +127,15 @@ export function COMMENT_POST(
     }
   }
 }
+
+export function PHOTO_DELETE(id: number): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('@Dogs:token')}`
+      }
+    }
+  }
+}

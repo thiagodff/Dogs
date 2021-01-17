@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../../../hooks/context/auth'
+import { PHOTO_GET } from '../../../../services/api'
 import PostComments from '../PostComments'
+import PostDelete from '../PostDelete'
 
 import { Container, PostDetails } from './styles'
 
@@ -48,6 +51,7 @@ interface IDataPost {
 }
 
 const PostContent: React.FC<PostContentProps> = ({ data }) => {
+  const { user } = useAuth()
   const { photo, comments } = (data as unknown) as IDataPost
 
   return (
@@ -58,7 +62,11 @@ const PostContent: React.FC<PostContentProps> = ({ data }) => {
       <PostDetails>
         <div>
           <p className="author">
-            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            {user && user.username === photo.author ? (
+              <PostDelete id={photo.id} />
+            ) : (
+              <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            )}
             <span className="visualizations">{photo.acessos}</span>
           </p>
           <h1 className="title">
