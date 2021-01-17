@@ -3,12 +3,13 @@ import React, { useEffect } from 'react'
 import { PHOTOS_GET } from '../../../../services/api'
 
 import useFetch from '../../../../hooks/fetch'
+import { useAuth } from '../../../../hooks/context/auth'
 
 import Error from '../../../Error'
 import PostItem from '../PostItem'
 import Loading from '../../../Loading'
 
-import { Container } from './styles'
+import { Container, ContainerNoPost } from './styles'
 
 interface PostProps {
   [key: string]: string
@@ -16,22 +17,46 @@ interface PostProps {
 
 interface PostListProps {
   setModalPost(post: PostProps): void
+  setEndOfPosts(isEndOfPosts: boolean): void
+  setLoadingPosts(loading: boolean): void
+  page?: number
+  isPrivate?: boolean
 }
 
-const Posts: React.FC<PostListProps> = ({ setModalPost }) => {
+const Posts: React.FC<PostListProps> = ({
+  setModalPost,
+  page = 1,
+  isPrivate = false,
+  setEndOfPosts,
+  setLoadingPosts
+}) => {
+  const { user } = useAuth()
   const { data, loading, error, request } = useFetch()
 
   useEffect(() => {
     async function loadPosts() {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 })
+      setLoadingPosts(true)
+
+      const userId = isPrivate ? user.id : 0
+      const total = 6
+      const { url, options } = PHOTOS_GET({ page, total, user: userId })
 
       const { response, responseJson } = await request({ url, options })
-      console.log(response)
-      console.log(responseJson)
+
+      if (
+        response &&
+        response.ok &&
+        responseJson instanceof Array &&
+        responseJson.length < total
+      ) {
+        setEndOfPosts(true)
+      }
+
+      setLoadingPosts(false)
     }
 
     loadPosts()
-  }, [request])
+  }, [request, isPrivate, user, page, setEndOfPosts, setLoadingPosts])
 
   if (error) return <Error error={error} />
   if (loading) return <Loading />
@@ -45,9 +70,9 @@ const Posts: React.FC<PostListProps> = ({ setModalPost }) => {
     )
   }
   return (
-    <Container>
-      <h1>Nenhum post encontrado, volte mais tarde</h1>
-    </Container>
+    <ContainerNoPost>
+      <h1>Nenhum post encontrado.</h1>
+    </ContainerNoPost>
   )
 }
 

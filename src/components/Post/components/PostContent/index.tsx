@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../../hooks/context/auth'
-import { PHOTO_GET } from '../../../../services/api'
 import Image from '../../../Image'
 import PostComments from '../PostComments'
 import PostDelete from '../PostDelete'
