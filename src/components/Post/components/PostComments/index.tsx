@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { useAuth } from '../../../../hooks/context/auth'
 
@@ -31,11 +31,18 @@ interface PostCommentsProps {
 
 const PostComments: React.FC<PostCommentsProps> = props => {
   const [comments, setComments] = useState(() => props.comments)
+  const commentsList = useRef<HTMLUListElement>(null)
   const { isSigned } = useAuth()
+
+  useEffect(() => {
+    if (commentsList.current) {
+      commentsList.current.scrollTop = commentsList.current.scrollHeight
+    }
+  }, [comments])
 
   return (
     <>
-      <CommentList>
+      <CommentList ref={commentsList}>
         {comments.map(comment => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>

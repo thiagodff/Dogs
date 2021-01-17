@@ -7,7 +7,7 @@ import Error from '../../../Error'
 
 import { ReactComponent as SendIcon } from '../../../../assets/send.svg'
 
-import { Container } from './styles'
+import { Container, CommentField, SendButton } from './styles'
 
 interface CommentsProps {
   comment_ID: string
@@ -58,7 +58,7 @@ const PostCreateComment: React.FC<PostCreateCommentProps> = ({
 
   return (
     <Container onSubmit={handleSubmit}>
-      <textarea
+      <CommentField
         id="comment"
         name="comment"
         placeholder="Comente..."
@@ -66,9 +66,9 @@ const PostCreateComment: React.FC<PostCreateCommentProps> = ({
         onChange={({ target }) => setComment(target.value)}
       />
 
-      <button type="submit">
+      <SendButton type="submit">
         <SendIcon />
-      </button>
+      </SendButton>
 
       <Error error={error} />
     </Container>

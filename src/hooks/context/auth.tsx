@@ -57,29 +57,32 @@ const AuthProvider: React.FC = ({ children }) => {
     }
   }, [])
 
-  const signIn = useCallback(async ({ username, password }) => {
-    try {
-      setError(null)
-      setLoading(true)
+  const signIn = useCallback(
+    async ({ username, password }) => {
+      try {
+        setError(null)
+        setLoading(true)
 
-      const { url, options } = TOKEN_POST({ username, password })
+        const { url, options } = TOKEN_POST({ username, password })
 
-      const response = await fetch(url, options)
-      if (!response.ok) throw new Error('Error: Usuário inválido')
+        const response = await fetch(url, options)
+        if (!response.ok) throw new Error('Error: Usuário inválido')
 
-      const { token } = await response.json()
+        const { token } = await response.json()
 
-      localStorage.setItem('@Dogs:token', token)
-      await getUser(token)
+        localStorage.setItem('@Dogs:token', token)
+        await getUser(token)
 
-      navigate('/conta')
-    } catch (err) {
-      setError(err.message)
-      setIsSigned(false)
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+        navigate('/conta')
+      } catch (err) {
+        setError(err.message)
+        setIsSigned(false)
+      } finally {
+        setLoading(false)
+      }
+    },
+    [getUser, navigate]
+  )
 
   const signOut = useCallback(() => {
     setData({} as IUserState)
