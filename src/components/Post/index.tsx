@@ -22,11 +22,14 @@ const Post: React.FC = () => {
 
   if (error) return <Error error={error} />
   if (loading) return <Loading />
-  return (
-    <Container className="container main-container">
-      <PostContent data={data} />
-    </Container>
-  )
+  if (Object.keys(data).length > 0) {
+    return (
+      <Container className="container main-container">
+        <PostContent data={data} />
+      </Container>
+    )
+  }
+  return null
 }
 
 export default Post
