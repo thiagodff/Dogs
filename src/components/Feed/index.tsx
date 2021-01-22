@@ -6,10 +6,10 @@ import PostList from './components/PostList'
 import { Container } from './styles'
 
 interface FeedProps {
-  isPrivate?: boolean
+  userId?: number
 }
 
-const Feed: React.FC<FeedProps> = ({ isPrivate = false }) => {
+const Feed: React.FC<FeedProps> = ({ userId = 0 }) => {
   const [modalPost, setModalPost] = useState({})
   const [pages, setPages] = useState([1])
   const [endOfPosts, setEndOfPosts] = useState(false)
@@ -45,7 +45,7 @@ const Feed: React.FC<FeedProps> = ({ isPrivate = false }) => {
         <PostList
           key={page}
           page={page}
-          isPrivate={isPrivate}
+          userId={userId}
           setModalPost={setModalPost}
           setEndOfPosts={setEndOfPosts}
           setLoadingPosts={setLoadingPosts}

@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { PHOTOS_GET } from '../../../../services/api'
 
 import useFetch from '../../../../hooks/fetch'
-import { useAuth } from '../../../../hooks/context/auth'
 
 import Error from '../../../Error'
 import PostItem from '../PostItem'
@@ -20,24 +19,22 @@ interface PostListProps {
   setEndOfPosts(isEndOfPosts: boolean): void
   setLoadingPosts(loading: boolean): void
   page?: number
-  isPrivate?: boolean
+  userId?: number
 }
 
 const Posts: React.FC<PostListProps> = ({
   setModalPost,
   page = 1,
-  isPrivate = false,
+  userId = 0,
   setEndOfPosts,
   setLoadingPosts
 }) => {
-  const { user } = useAuth()
   const { data, loading, error, request } = useFetch()
 
   useEffect(() => {
     async function loadPosts() {
       setLoadingPosts(true)
 
-      const userId = isPrivate ? user.id : 0
       const total = 6
       const { url, options } = PHOTOS_GET({ page, total, user: userId })
 
@@ -56,7 +53,7 @@ const Posts: React.FC<PostListProps> = ({
     }
 
     loadPosts()
-  }, [request, isPrivate, user, page, setEndOfPosts, setLoadingPosts])
+  }, [request, page, userId, setEndOfPosts, setLoadingPosts])
 
   if (error) return <Error error={error} />
   if (loading) return <Loading />

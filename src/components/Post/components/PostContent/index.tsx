@@ -59,7 +59,7 @@ const PostContent: React.FC<PostContentProps> = ({ data }) => {
       <div className="img">
         <Image src={photo.src} alt={photo.title} />
       </div>
-      <PostDetails>
+      <PostDetails className="details">
         <div>
           <p className="author">
             {user && user.username === photo.author ? (

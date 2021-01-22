@@ -7,6 +7,7 @@ import DefaultLayout from '../layouts/Default'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import Post from '../components/Post'
 
 const Routes: React.FC = () => (
   <SwitchRoute>
@@ -14,6 +15,7 @@ const Routes: React.FC = () => (
       <Route path="" component={Home} />
       <Route path="login/*" component={Login} />
       <Route path="conta/*" component={Dashboard} isPrivate />
+      <Route path="foto/:id" component={Post} />
     </Route>
   </SwitchRoute>
 )
