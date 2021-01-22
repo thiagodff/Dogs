@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
+import PageNotFound from '../../components/PageNotFound'
+
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import ForgotPassword from './components/ForgotPassword'
@@ -21,6 +23,7 @@ const Login: React.FC = () => {
           <Route path="cadastrar" element={<SignUp />} />
           <Route path="esqueci-minha-senha" element={<ForgotPassword />} />
           <Route path="resetar-minha-senha" element={<ResetPassword />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </Container>

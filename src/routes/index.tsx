@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import Post from '../components/Post'
 import ProfilePosts from '../pages/Home/components/ProfilePosts'
+import PageNotFound from '../components/PageNotFound'
 
 const Routes: React.FC = () => (
   <SwitchRoute>
@@ -18,6 +19,7 @@ const Routes: React.FC = () => (
       <Route path="conta/*" component={Dashboard} isPrivate />
       <Route path="foto/:id" component={Post} />
       <Route path="perfil/:user" component={ProfilePosts} />
+      <Route path="*" component={PageNotFound} />
     </Route>
   </SwitchRoute>
 )
