@@ -11,7 +11,7 @@ const UserPosts: React.FC = () => {
 
   return (
     <Container>
-      <Feed userId={user.id} />
+      <Feed user={user.id} />
     </Container>
   )
 }

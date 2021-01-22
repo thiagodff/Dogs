@@ -19,7 +19,7 @@ interface ICreateUser {
 interface IPhotosGet {
   page: number
   total: number
-  user: number
+  user: number | string
 }
 
 interface IDatComment {

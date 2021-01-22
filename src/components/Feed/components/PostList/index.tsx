@@ -19,13 +19,13 @@ interface PostListProps {
   setEndOfPosts(isEndOfPosts: boolean): void
   setLoadingPosts(loading: boolean): void
   page?: number
-  userId?: number
+  user?: number | string
 }
 
 const Posts: React.FC<PostListProps> = ({
   setModalPost,
   page = 1,
-  userId = 0,
+  user = 0,
   setEndOfPosts,
   setLoadingPosts
 }) => {
@@ -36,7 +36,7 @@ const Posts: React.FC<PostListProps> = ({
       setLoadingPosts(true)
 
       const total = 6
-      const { url, options } = PHOTOS_GET({ page, total, user: userId })
+      const { url, options } = PHOTOS_GET({ page, total, user })
 
       const { response, responseJson } = await request({ url, options })
 
@@ -53,7 +53,7 @@ const Posts: React.FC<PostListProps> = ({
     }
 
     loadPosts()
-  }, [request, page, userId, setEndOfPosts, setLoadingPosts])
+  }, [request, page, user, setEndOfPosts, setLoadingPosts])
 
   if (error) return <Error error={error} />
   if (loading) return <Loading />

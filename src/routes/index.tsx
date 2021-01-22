@@ -8,6 +8,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import Post from '../components/Post'
+import ProfilePosts from '../pages/Home/components/ProfilePosts'
 
 const Routes: React.FC = () => (
   <SwitchRoute>
@@ -16,6 +17,7 @@ const Routes: React.FC = () => (
       <Route path="login/*" component={Login} />
       <Route path="conta/*" component={Dashboard} isPrivate />
       <Route path="foto/:id" component={Post} />
+      <Route path="perfil/:user" component={ProfilePosts} />
     </Route>
   </SwitchRoute>
 )
