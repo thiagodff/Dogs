@@ -10,6 +10,7 @@ import Error from '../../../../components/Error'
 import { FORGOT_PASSWORD } from '../../../../services/api'
 
 import { Container } from './styles'
+import Head from '../../../../components/Head'
 
 const ForgotPassword: React.FC = () => {
   const credential = useForm()
@@ -32,6 +33,8 @@ const ForgotPassword: React.FC = () => {
 
   return (
     <Container>
+      <Head title="Esqueci minha senha" />
+
       <h1 className="title">Perdeu a senha?</h1>
 
       {Object.keys(data).length > 0 ? (

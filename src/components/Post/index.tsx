@@ -6,10 +6,17 @@ import useFetch from '../../hooks/fetch'
 import { PHOTO_GET } from '../../services/api'
 
 import Error from '../Error'
+import Head from '../Head'
 import Loading from '../Loading'
 import PostContent from './components/PostContent'
 
 import { Container } from './styles'
+
+interface IDataPost {
+  photo: {
+    title: string
+  }
+}
 
 const Post: React.FC = () => {
   const { id } = useParams()
@@ -25,6 +32,8 @@ const Post: React.FC = () => {
   if (Object.keys(data).length > 0) {
     return (
       <Container className="container main-container">
+        <Head title={((data as unknown) as IDataPost).photo.title} />
+
         <PostContent data={data} />
       </Container>
     )

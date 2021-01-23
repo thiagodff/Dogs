@@ -11,6 +11,7 @@ import Input from '../../../../components/Input'
 import Error from '../../../../components/Error'
 
 import { Container } from './styles'
+import Head from '../../../../components/Head'
 
 const SignUp: React.FC = () => {
   const username = useForm()
@@ -43,6 +44,8 @@ const SignUp: React.FC = () => {
 
   return (
     <Container className="anime-left">
+      <Head title="Crie sua conta" />
+
       <h1 className="title">Cadastre-se</h1>
 
       <form onSubmit={handleSubmit}>

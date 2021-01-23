@@ -9,6 +9,7 @@ import { RESET_PASSWORD } from '../../../../services/api'
 import Input from '../../../../components/Input'
 import Button from '../../../../components/Button'
 import Error from '../../../../components/Error'
+import Head from '../../../../components/Head'
 
 const ResetPassword: React.FC = () => {
   const password = useForm('password')
@@ -48,6 +49,8 @@ const ResetPassword: React.FC = () => {
 
   return (
     <h1>
+      <Head title="Resetar minha senha" />
+
       <h1 className="title">Resete a senha</h1>
 
       <form onSubmit={handleSubmit}>

@@ -11,6 +11,7 @@ import Error from '../../../../components/Error'
 
 import { Container, ImagePreviewWrapper } from './styles'
 import { useNavigate } from 'react-router-dom'
+import Head from '../../../../components/Head'
 
 interface IUploadImage {
   preview: string
@@ -59,6 +60,8 @@ const CreatePost: React.FC = () => {
 
   return (
     <Container className="anime-left">
+      <Head title="Poste sua foto" />
+
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="name" {...name} />
         <Input label="Peso" type="number" name="weight" {...weight} />
