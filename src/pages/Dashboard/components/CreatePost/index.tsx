@@ -28,7 +28,6 @@ const CreatePost: React.FC = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log()
     if (Object.keys(data).length > 0) {
       navigate('/conta')
     }

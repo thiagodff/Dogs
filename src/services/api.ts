@@ -22,8 +22,13 @@ interface IPhotosGet {
   user: number | string
 }
 
-interface IDatComment {
+interface IDataComment {
   comment: string
+}
+
+interface IForgotPassword {
+  login: string
+  url: string
 }
 
 export function TOKEN_POST(body: IAuthenticateUser): IFetchData {
@@ -113,7 +118,7 @@ export function PHOTO_GET(id: string): IFetchData {
 export function COMMENT_POST(
   id: number,
   token: string,
-  body: IDatComment
+  body: IDataComment
 ): IFetchData {
   return {
     url: `${API_BASE_URL}/api/comment/${id}`,
@@ -136,6 +141,19 @@ export function PHOTO_DELETE(id: number): IFetchData {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('@Dogs:token')}`
       }
+    }
+  }
+}
+
+export function FORGOT_PASSWORD(body: IForgotPassword): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/password/lost`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
     }
   }
 }
