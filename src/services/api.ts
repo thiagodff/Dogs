@@ -31,6 +31,12 @@ interface IForgotPassword {
   url: string
 }
 
+interface IResetPassword {
+  login: string
+  key: string
+  password: string
+}
+
 export function TOKEN_POST(body: IAuthenticateUser): IFetchData {
   return {
     url: API_BASE_URL + '/jwt-auth/v1/token',
@@ -148,6 +154,19 @@ export function PHOTO_DELETE(id: number): IFetchData {
 export function FORGOT_PASSWORD(body: IForgotPassword): IFetchData {
   return {
     url: `${API_BASE_URL}/api/password/lost`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }
+  }
+}
+
+export function RESET_PASSWORD(body: IResetPassword): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/password/reset`,
     options: {
       method: 'POST',
       headers: {
