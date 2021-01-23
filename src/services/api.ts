@@ -176,3 +176,15 @@ export function RESET_PASSWORD(body: IResetPassword): IFetchData {
     }
   }
 }
+
+export function GET_STATISTICS(): IFetchData {
+  return {
+    url: `${API_BASE_URL}/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('@Dogs:token')}`
+      }
+    }
+  }
+}
