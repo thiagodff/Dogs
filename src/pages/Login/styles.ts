@@ -18,6 +18,8 @@ export const Container = styled.section`
   .content-wrapper {
     max-width: 30rem;
     padding: 1rem;
+    margin-top: 20vh;
+    margin-bottom: 4rem;
   }
 
   @media (max-width: 40rem) {

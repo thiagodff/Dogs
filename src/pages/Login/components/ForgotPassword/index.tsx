@@ -32,7 +32,7 @@ const ForgotPassword: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container className="anime-left">
       <Head title="Esqueci minha senha" />
 
       <h1 className="title">Perdeu a senha?</h1>

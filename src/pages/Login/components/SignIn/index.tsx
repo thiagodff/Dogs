@@ -45,7 +45,7 @@ const SignIn: React.FC = () => {
         ) : (
           <Button type="submit">Entrar</Button>
         )}
-        <Error error={error} />
+        <Error error={error && 'Usuário ou senha inválido'} />
       </form>
 
       <Link to="/login/esqueci-minha-senha">Perdeu a Senha?</Link>

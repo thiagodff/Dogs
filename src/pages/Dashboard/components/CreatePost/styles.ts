@@ -13,6 +13,10 @@ export const Container = styled.section`
   .img-upload {
     margin-bottom: 1rem;
   }
+
+  @media (max-width: 40rem) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ImagePreviewWrapper = styled.div<ImagePreviewProps>`

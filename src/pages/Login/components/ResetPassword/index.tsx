@@ -48,7 +48,7 @@ const ResetPassword: React.FC = () => {
   }
 
   return (
-    <h1>
+    <section className="anime-left">
       <Head title="Resetar minha senha" />
 
       <h1 className="title">Resete a senha</h1>
@@ -69,7 +69,7 @@ const ResetPassword: React.FC = () => {
       </form>
 
       <Error error={error} />
-    </h1>
+    </section>
   )
 }
 
