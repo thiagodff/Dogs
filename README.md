@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <a href="https://tdogs.netlify.app/" target="_blank">
+      <img alt="Dogs" width="150px" src="https://i.imgur.com/ktHiZYl.png" />
+    </a>
+    <br>
+    Dogs
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="center">
+  Social network for dogs
+</h4>
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/thiagodff/Dogs">
 
-## Available Scripts
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/thiagodff/Dogs">
 
-In the project directory, you can run:
+  <a href="https://www.codacy.com/gh/thiagodff/Dogs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=thiagodff/Dogs&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/f8b1fc49e8424f0490748586c7d18dfb"/>
+  </a>
 
-### `yarn start`
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/thiagodff/Dogs">
+  <a href="https://github.com/thiagodff/Dogs/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/thiagodff/Dogs">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <a href="https://github.com/thiagodff/Dogs/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/thiagodff/Dogs">
+  </a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <img alt="License" src="https://img.shields.io/github/license/thiagodff/Dogs">
 
-### `yarn test`
+  <a href="https://app.netlify.com/sites/tdogs/deploys">
+    <img alt="Codacy grade" src="https://api.netlify.com/api/v1/badges/882c0f3a-2cf8-4b26-ad11-f5fd80e59813/deploy-status"/>
+  </a>
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-### `yarn build`
+<p align="center">
+  <img alt="Demo" src="https://i.imgur.com/XKQwiGG.png">
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :computer: Demonstration
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>
+  <a href="https://tdogs.netlify.app/" target="_blank">
+    <img height="40 alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1599785319/readme_logos/demo_on_netlify_umjmch.png">
+  </a>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :rocket: Technologies
 
-### `yarn eject`
+This project was developed at the [Origamid React Course](https://www.origamid.com/curso/react-completo/) with the following technologies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [ReactJS](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [React Router Dom](https://github.com/ReactTraining/react-router)
+- [Styled Components](https://www.styled-components.com/)
+- [Context API](https://pt-br.reactjs.org/docs/context.html)
+- [Axios](https://github.com/axios/axios)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [VS Code](https://code.visualstudio.com/) with [EditorConfig][vceditconfig]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :information_source: How To Use
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/) installed on your computer. From your command line:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Clone this repository
+$ git clone https://github.com/thiagodff/Dogs
 
-## Learn More
+# Go into the repository
+$ cd Dogs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Install dependencies
+$ npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Start the app
+$ npm run start
+```
+
+## :memo: License
+
+This project is under the MIT license. See the [LICENSE](https://github.com/thiagodff/Dogs/blob/main/LICENSE) for more information.
+
+---
+
+Made with ♥ by Thiago Dornelles :wave: [Get in touch!](https://www.linkedin.com/in/thiago-fernandes-dornelles/)
+
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
