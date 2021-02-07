@@ -34,7 +34,7 @@
   </a>
 </p>
 
-<p align="center">
+<p align="center">note: the api client is reset every 10 minutes
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
@@ -50,6 +50,9 @@
   <a href="https://tdogs.netlify.app/" target="_blank">
     <img height="40 alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1599785319/readme_logos/demo_on_netlify_umjmch.png">
   </a>
+
+note: the api client is reset every 10 minutes
+
 </p>
 
 ## :rocket: Technologies
