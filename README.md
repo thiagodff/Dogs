@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a47b0c26b6b940cbb9ccfe171d3ca86a)](https://app.codacy.com/gh/thiagodff/Dogs?utm_source=github.com&utm_medium=referral&utm_content=thiagodff/Dogs&utm_campaign=Badge_Grade_Settings)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
